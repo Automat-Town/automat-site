@@ -23,9 +23,10 @@ html, body {
   background-color: var(--bg);
   min-height: 100%;
   height: 100%;
-  font-family: 'Baloo';
+  font-family: 'Baloo', sans-serif;
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
   color: var(--dark-red);
   line-height: 1.3;
 }
