@@ -9,10 +9,25 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Baloo';
+  src: url('fonts/Baloo.woff2') format('woff2'),
+      url('fonts/Baloo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 html, body {
   background-color: var(--bg);
   min-height: 100%;
   height: 100%;
+  font-family: 'Baloo';
+  font-weight: normal;
+  font-style: normal;
+  color: var(--dark-red);
+  line-height: 1.3;
 }
 
 body {
@@ -29,6 +44,7 @@ main {
   justify-content: center;
   font-size: calc(4em + 4vmin);
   margin: auto;
+  padding: 0.4em 0.2em;
 }
 .logo {
   padding: 0;
@@ -55,13 +71,13 @@ main {
   height: 0.5em;
 }
 .logo:hover .logo-image img:nth-child(1) {
- transform: translate(-0.03em, 0);
+  transform: translate(-0.03em, 0);
 }
 .logo:hover .logo-image img:nth-child(2) {
- transform: translate(0.03em, 0.01em) rotate(5deg);
+  transform: translate(0.03em, 0.01em) rotate(5deg);
 }
 .logo:hover .logo-image img:nth-child(3) {
- transform: translate(0.03em, 0);
+  transform: translate(0.03em, 0);
 }
 
 .logo-text {
@@ -72,32 +88,133 @@ main {
 
 nav {
   font-size: inherit;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-auto-flow: row;
   gap: 0.4em;
   align-items: center;
+  max-width: 40rem;
 }
 .big-button {
   background-color: var(--light-red);
-  border-radius: 0.4em;
-  display: inline-block;
-  padding: 0.2em 0.8em;
+  color: var(--dark-red);
+  text-decoration: none;
+  font-size: 0.3em;
+  border-radius: 1.5em;
+  display: inline-flex;
+  padding: 0.8em;
   outline: 0px solid var(--focus);
-  box-shadow: 0.1em -0.1em 0 0 var(--dark-red);
+  box-shadow: 0.25em -0.25em 0 0 var(--dark-red);
   transition: transform 0.8s cubic-bezier(.23,1.82,.22,.52), box-shadow 0.8s cubic-bezier(.23,1.82,.22,.52), outline 0.2s ease-out;
+  min-width: 8em;
+  min-height: 4em;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.big-button span {
+  display: flex;
+  align-items: center;
+  transition: transform 0.8s cubic-bezier(.48,3.56,0,.24);
+}
+
+.big-button.big-button--effect::before, .big-button.big-button--effect::after {
+  content: "";
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1em;
+  height: 1.9em;
+  display: inline-block;
+  margin-right: 0.2em;
+  transition: transform 0.8s cubic-bezier(.23,1.82,.22,.52);
+}
+
+.big-button.big-button--effect::before {
+  background-image: url("/images/lines-left.png");
+  margin-right: 0.3em;
+}
+
+.big-button.big-button--effect::after {
+  background-image: url("/images/lines-right.png");
+  margin-left: 0.3em;
 }
 
 .big-button:focus {
-  outline: 0.06em solid var(--focus);
+  outline: 0.25em solid var(--focus);
 }
 
 .big-button img {
   width: auto;
-  height: 1em;
+  height: 3em;
   display: block;
 }
 
 .big-button:hover {
   box-shadow: 0em 0em 0 0 var(--light-red);
-  transform: translate(0.1em, -0.1em);
+  transform: translate(0.25em, -0.25em);
+}
+.big-button.big-button--effect:hover::before {
+  transform: translate(-0.2em, 0em);
+}
+.big-button.big-button--effect:hover::after {
+  transform: translate(0.2em, 0em);
+}
+.big-button:hover span {
+  transform: translate(0.03em, 0.01em) rotate(5deg);
+}
+.nav-item {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto;
+  grid-auto-flow: row;
+  align-items: stretch;
+  gap: 0.4em;
+  flex: 1;
+}
+.nav-item .big-button, .nav-item p {
+  margin: 0;
+}
+.nav-item p {
+  font-size: 1rem;
+  max-width: 20em;
+  align-self: center;
+}
+@media (max-width: 600px) {
+  .nav-item {
+    grid-template-columns: 1fr;
+    gap: 0.2em;
+    text-align: center;
+  }
+}
+
+
+section h2, section h3 {
+  font-size: 0.7em;
+  max-width: 10em;
+  text-align: center;
+  line-height: 0.9;
+  margin: 0.8em 0 0.4em 0;
+}
+
+section p {
+  font-size: 0.2em;
+  max-width: 40rem;
+  margin: 0;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+section a {
+  color: var(--light-red);
+  text-decoration: none;
+}
+
+section p + p {
+  margin-top: 1em;
+}
+.ingress {
+  font-size: 0.24em;
 }
