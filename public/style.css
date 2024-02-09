@@ -45,7 +45,7 @@ main {
   justify-content: center;
   font-size: calc(4em + 4vmin);
   margin: auto;
-  padding: 0.4em 0.2em;
+  padding: 0.4em 0.2em 1em;
 }
 .logo {
   padding: 0;
@@ -121,7 +121,8 @@ nav {
   transition: transform 0.8s cubic-bezier(.48,3.56,0,.24);
 }
 
-.big-button.big-button--effect::before, .big-button.big-button--effect::after {
+.big-button.big-button--effect::before, .big-button.big-button--effect::after,
+.title-large::before, .title-large::after {
   content: "";
   background-size: contain;
   background-repeat: no-repeat;
@@ -218,4 +219,69 @@ section p + p {
 }
 .ingress {
   font-size: 0.24em;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-large {
+  font-size:9vmin;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.title-large::before {
+  background-image: url("/images/lines-left.png");
+  margin-right: 0.3em;
+}
+
+.title-large::after {
+  background-image: url("/images/lines-right.png");
+  margin-left: 0.3em;
+}
+
+.title-large + .marker {
+  margin-top: 0;
+}
+
+
+.marker {
+  background-image: url(/images/marker.png);
+  background-size: 90% 90%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: var(--bg);
+  padding: 0.5em 1.2em;
+  font-size:5vmin;
+  margin-bottom: 1em;
+  transition: background-size 0.8s cubic-bezier(.23,1.82,.22,.52);
+}
+a.marker {
+  text-decoration: none;
+}
+.marker:hover {
+  background-size: 98% 98%;
+}
+.marker span {
+  display: block;
+  font-size: 0.5em;
+  text-align: center;
+}
+.marker + .ingress {
+  margin-top: 1.5em;
+}
+
+ul {
+  font-size: 0.2em;
+  text-align: left;
+  max-width: 40rem;
+  margin-top: 2em;
+}
+
+li + li {
+  margin-top: 0.5em;
 }
