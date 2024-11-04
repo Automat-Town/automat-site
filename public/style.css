@@ -143,12 +143,12 @@ a {
 }
 
 .big-button.big-button--effect::before {
-  background-image: url("/images/lines-left.png");
+  background-image: url("images/lines-left.png");
   margin-right: 0.3em;
 }
 
 .big-button.big-button--effect::after {
-  background-image: url("/images/lines-right.png");
+  background-image: url("images/lines-right.png");
   margin-left: 0.3em;
 }
 
@@ -238,12 +238,12 @@ section p + p {
 }
 
 .title-large::before {
-  background-image: url("/images/lines-left.png");
+  background-image: url("images/lines-left.png");
   margin-right: 0.3em;
 }
 
 .title-large::after {
-  background-image: url("/images/lines-right.png");
+  background-image: url("images/lines-right.png");
   margin-left: 0.3em;
 }
 
@@ -253,7 +253,7 @@ section p + p {
 
 
 .marker {
-  background-image: url(/images/marker.png);
+  background-image: url(images/marker.png);
   background-size: 90% 90%;
   background-repeat: no-repeat;
   background-position: center center;
